@@ -12,6 +12,7 @@
 
 ## Step Selection
 - [x] Transformer(stage2 model) 이해
+- [ ] Teacher Forcing : 어떤 정답값을 주고 있는지 파악
 - [ ] 노트 위치 선정 기준
 - [ ] 멀티 노트 시점 선정 기준
 - [ ] 긴 노트를 둘 시점 선정
