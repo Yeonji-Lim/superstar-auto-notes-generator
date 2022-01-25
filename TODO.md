@@ -1,5 +1,10 @@
 # TODO LIST
 
+## Step Placement
+- [ ] extract_features 이해하기
+- [ ] librosa 이해
+- [ ] generate level 이해하기
+
 ## Step Selection
 - [ ] Transformer(stage2 model) 이해 - 진행중
 - [ ] 노트 위치 선정 기준
