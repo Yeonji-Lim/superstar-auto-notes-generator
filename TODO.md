@@ -1,9 +1,9 @@
 # TODO LIST
 
 ## Step Placement
-- [ ] extract_features 이해하기
-- [ ] librosa 이해
-- [ ] generate level 이해하기
+- [ ] extract_features 구조 파악
+- [ ] librosa 이해하기
+- [ ] generate level 부분 분석
 
 ## Step Selection
 - [ ] Transformer(stage2 model) 이해 - 진행중
