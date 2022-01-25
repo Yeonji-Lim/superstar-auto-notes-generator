@@ -97,6 +97,8 @@ ___
 
 ✽ 하이퍼파라미터 : 사용자가 모델 설계시 임의로 변경할 수 있는 값
 
+___
+  
 ~~~
 d_model = 512
 ~~~
@@ -111,6 +113,8 @@ d_model = 512
 
 논문에서는 512
 
+___
+  
 ~~~
 num_layers = 6
 ~~~
@@ -119,6 +123,8 @@ num_layers = 6
 
 논문에서 6
 
+___
+  
 ~~~
 num_heads = 8
 ~~~
@@ -131,6 +137,8 @@ num_heads = 8
 
 이때 병렬의 개수가 8이라는 것임
 
+___
+  
 ~~~
 d_ff = 2048
 ~~~
@@ -176,7 +184,6 @@ ___
 
 Self Attention은 Query, Key, Value 모두 그 벡터의 출처가 같다
 
----
 
 ## Encoder
 
@@ -241,7 +248,8 @@ Add : 잔차 연결 Residual Connection
 
 Norm : 층 정규화 Layer Normalization
 
-
+___
+  
 ### Residual Connection
 
 잔차 연결은 그 층의 입력과 출력을 더하는 것을 말함
@@ -250,6 +258,8 @@ Norm : 층 정규화 Layer Normalization
 x + Sublayer(x)
 ~~~
 
+___
+  
 ### Layer Normalization
 
 ~~~
@@ -261,7 +271,6 @@ LN = LayerNorm( x + Sublayer(x) )
 이를 가지고 어떤 수식을 통해 값을 정규화하여 학습을 도움
 
 ## 디코더
-
 
 인코더는 층별로 연산을 순차적으로 진행하고 마지막 층에서 그 출력을 디코더에게 전달.
 
@@ -308,13 +317,14 @@ LN = LayerNorm( x + Sublayer(x) )
 
 그 외 수행 과정은 다른 어텐션과 같다.
 
+___
 
 정리 하자면,
 
 ~~~
-인코더의 첫번째 서브층 | 셀프 어텐션          | 패딩 마스크를 전달                        | Query = Key = Value
+인코더의 첫번째 서브층 | 셀프 어텐션          | 패딩 마스크를 전달                    | Query = Key = Value
 
-디코더의 첫번째 서브층 | 마스크드 셀프 어텐션 | 룩-어헤드 마스크(패딩 마스크 포함)를 전달 | Query = Key = Value
+디코더의 첫번째 서브층 | 마스크드 셀프 어텐션   | 룩-어헤드 마스크(패딩 마스크 포함)를 전달  | Query = Key = Value
 
-디코더의 두번째 서브층 | 인코더-디코더 어텐션 | 패딩 마스크를 전달                        | Query : 디코더 행렬 / Key = Value : 인코더 행렬
+디코더의 두번째 서브층 | 인코더-디코더 어텐션   | 패딩 마스크를 전달                    | Query : 디코더 행렬 / Key = Value : 인코더 행렬
 ~~~
