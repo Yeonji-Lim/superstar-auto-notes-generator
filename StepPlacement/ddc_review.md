@@ -44,6 +44,7 @@ deep saber의 step placement부분은 ddc 방식을 가져왔다.
     -> cnn으로 여러 time step을 한꺼번에 본 후, 이 time axis 정보를 유지한 채로 그대로 rnn의 인풋 스텝으로 활용하는 방식
 
     
+2. 이 sequence에다가 Hamming window로 convolve해서 smoothing을 진행했고, 이를 통해 작은 구간에서 두번의 peak가 나타나는 것을 억제했다.
 
 3. 어떤 peak가 충분히 높은지 threshold를 적용했다. : 이 때, 곡의 난이도에 따라 발생하는 peak의 수가 달라지기 때문에, 각 난이도마다 다른 threshold 사용.
 
