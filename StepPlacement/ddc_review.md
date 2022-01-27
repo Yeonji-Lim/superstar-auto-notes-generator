@@ -26,9 +26,11 @@ deep saber의 step placement부분은 ddc 방식을 가져왔다.
     - 여러개의 window size로 얻은 spectrogram을(frame rate(초당 화면으로 출력되는 프레임 개수), 즉 hop size는 같음) 쌓은 데이터에 대해 CNN을 적용한다. 
     이때 logarithmic filter bank의 갯수와 같은 수의 frequency bank로 줄인다. => 각 뉴런은 해당 위치에서의 high temporal accuracy의 정보와 high frequency accuracy의 정보를 합치게 된다.
 
-    - 테스트할 때는 트레이닝 때처럼 사이즈를 나눌 필요 없이, 전체 곡을 그대로 input으로 넣어준다. ->  onset activation over time을 얻는다. => 이 function은 5 frame의 Hamming window를 사용한 convolution으로 smoothing되고, 특정 threshold보다 큰 local maxima 값들이 onset으로 표기된다(1로 표기된다, 즉 step 이 찍힌다).
+    - 테스트할 때는 트레이닝 때처럼 사이즈를 나눌 필요 없이, 전체 곡을 그대로 input으로 넣어준다. ->  onset activation over time을 얻는다. => 이 function은 5 frame의 Hamming window를 사용한 convolution으로 smoothing되고, 특정 threshold보다 큰 local maxima 값들이 onset으로 표기된다(1로 표기된다, 즉 step 이 찍힌다).   
     ㄴ hamming window: 울타리 오차, 누설오차를 막기 위한 window   
     ㄴ smoothing: 영상을 흐리게 하거나 노이즈를 제거   
+    ![image](https://user-images.githubusercontent.com/69388421/151327406-bed1f66e-ab10-4a4c-91cc-850b49e699d0.png)
+
 
     ## c-lstm 모델
     - 두개의 conv layer를 사용해 auio input 전체(unrolled data)를 encode
