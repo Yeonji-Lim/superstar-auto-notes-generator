@@ -36,17 +36,24 @@ deep saber의 step placement부분은 ddc 방식을 가져왔다.
     - 이 flatten 된 feature의 각 time step의 값들을 2-layer rnn 의 input으로 넣어준다
     - rnn 다음에 두개의 fully connected RELU를 붙임
     - 100개의 unrolled data 를 사용해서 학습
-    - 난이도 정보 추가
+    - 난이도 정보 추가   
     ㄴ low level: 1초에 1개 이하의 스텝    
     ㄴ high level: 1초에 7개 이상의 스텝
-    -> 이 난이도 정보를 cnn의 output을 flatten한 vector뒤에 붙였고 이를 fully connected layer의 input으로 사용   
+    -> 이 난이도 정보를 cnn의 output을 flatten한 vector뒤에 붙였고 이를 fully connected layer의 input으로 사용    
        
-    -> cnn으로 여러 time step을 한꺼번에 본 후, 이 time axis 정보를 유지한 채로 그대로 rnn의 인풋 스텝으로 활용하는 방식
+    -> cnn으로 여러 time step을 한꺼번에 본 후, 이 time axis 정보를 유지한 채로 그대로 rnn의 인풋 스텝으로 활용하는 방식    
 
-    
+# peak picking
+
+Onset detection의 스탠다드한 방법을 참고해서, 우리는 ‘peak picking process’를 통해 step probability의 sequence를 discrete한 step placement의 set으로 변환했다.
+ㄴ peak: 꼭대기, 즉 드라마틱한 부분, step 이 찍히는 부분    
+
+
+1. Step placement 알고리즘을 전체 곡에 대해서 수행해서. 10ms frame마다의 step occurring probability를 assign했다.
+
 2. 이 sequence에다가 Hamming window로 convolve해서 smoothing을 진행했고, 이를 통해 작은 구간에서 두번의 peak가 나타나는 것을 억제했다.
 
-3. 어떤 peak가 충분히 높은지 threshold를 적용했다. : 이 때, 곡의 난이도에 따라 발생하는 peak의 수가 달라지기 때문에, 각 난이도마다 다른 threshold 사용.
+3. 어떤 peak가 충분히 높은지 threshold를 적용했다. 이 때, 곡의 난이도에 따라 발생하는 peak의 수가 달라지기 때문에, 각 난이도마다 다른 threshold 사용.
 
 4. Predicted placement가 ground truth의 ±20ms window 안에 들어오면 true positive로 판정했다.
 
