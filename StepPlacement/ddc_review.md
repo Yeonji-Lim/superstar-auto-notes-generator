@@ -46,7 +46,8 @@ deep saber의 step placement부분은 ddc 방식을 가져왔다.
 # peak picking
 
 Onset detection의 스탠다드한 방법을 참고해서, 우리는 ‘peak picking process’를 통해 step probability의 sequence를 discrete한 step placement의 set으로 변환했다.    
-ㄴ peak: 꼭대기, 즉 드라마틱한 부분, step 이 찍히는 부분    
+ㄴ peak: 꼭대기, 즉 드라마틱한 부분, step 이 찍히는 부분      
+ㄴ peak-picking process: audio에서 feature 뽑아내는 것 
 
 
 1. Step placement 알고리즘을 전체 곡에 대해서 수행해서. 10ms frame마다의 step occurring probability를 assign했다.
