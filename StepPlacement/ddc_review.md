@@ -58,3 +58,4 @@ Onset detection의 스탠다드한 방법을 참고해서, 우리는 ‘peak pic
 4. Predicted placement가 ground truth의 ±20ms window 안에 들어오면 true positive로 판정했다.
 
 
+![image](https://user-images.githubusercontent.com/69388421/151306965-8078405a-a5c1-47e8-bfda-06377a832e57.png)
