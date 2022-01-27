@@ -45,7 +45,7 @@ deep saber의 step placement부분은 ddc 방식을 가져왔다.
 
 # peak picking
 
-Onset detection의 스탠다드한 방법을 참고해서, 우리는 ‘peak picking process’를 통해 step probability의 sequence를 discrete한 step placement의 set으로 변환했다.
+Onset detection의 스탠다드한 방법을 참고해서, 우리는 ‘peak picking process’를 통해 step probability의 sequence를 discrete한 step placement의 set으로 변환했다.    
 ㄴ peak: 꼭대기, 즉 드라마틱한 부분, step 이 찍히는 부분    
 
 
