@@ -12,9 +12,12 @@
 
 ## Step Selection
 - [x] Transformer(stage2 model) 이해
-- [ ] Teacher Forcing : 어떤 정답값을 주고 있는지 파악
+- [x] Teacher Forcing : 어떤 정답값을 주고 있는지 파악 -> 인코더와 같은 정답 값을 가지고 있음
+- [ ] Transformer의 용도
+- [ ] Step Placement의 결과물 사용처
+- [ ] 기존의 경우 y좌표가 4개가 아닌 3개만을 생성함(LineLayer) 4개 생성으로 변경 후 비교
 - [ ] 노트 위치 선정 기준
-- [ ] 멀티 노트 시점 선정 기준
+- [x] 멀티 노트 시점 선정 기준 -> states_grid(==grid_state)의 원소(tuple)이 값을 두개 가지고 있는 경우(12개의 값인 것을 보아 음계일 듯함)
 - [ ] 긴 노트를 둘 시점 선정
 - [ ] 난이도에 따른 차이
 
