@@ -45,5 +45,8 @@ deep saber의 step placement부분은 ddc 방식을 가져왔다.
 
     
 
+3. 어떤 peak가 충분히 높은지 threshold를 적용했다. : 이 때, 곡의 난이도에 따라 발생하는 peak의 수가 달라지기 때문에, 각 난이도마다 다른 threshold 사용.
+
+4. Predicted placement가 ground truth의 ±20ms window 안에 들어오면 true positive로 판정했다.
 
 
