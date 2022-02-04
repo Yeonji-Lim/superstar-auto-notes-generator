@@ -1,0 +1,67 @@
+Initialize engine version: 5.1.2p1 (4b35e09f2de6)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvldumdx.dll 27.21.14.5643]
+    Renderer: NVIDIA GeForce GTX 1050
+    Vendor:   NVIDIA
+    VRAM:     1977 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.064 seconds
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initialized touch support.
+Platform assembly: C:\Users\dalcom\Desktop\SEQEditor-1.1.7\qmtt-2.6.0.1-for-SequenceEditor\Viewer_Data\Managed\System.dll (this message is harmless)
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.081000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 365.
+Total: 0.156900 ms (FindLiveObjects: 0.020900 ms CreateObjectMapping: 0.007500 ms MarkObjects: 0.121600 ms  DeleteObjects: 0.003200 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.102000 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 386.
+Total: 0.229100 ms (FindLiveObjects: 0.021500 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.192300 ms  DeleteObjects: 0.005100 ms)
+
+MINA_ERROR(mina_buffer_load_from_ov_oneshot_from_uri)_URI:file:///C:/Users/dalcom/Desktop/SEQEditor-1.1.7/Red_Velvet_Bad_Boy_seq/badboy.ogg, RET:-10606
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.269000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 399.
+Total: 1.422500 ms (FindLiveObjects: 0.062000 ms CreateObjectMapping: 0.029100 ms MarkObjects: 1.308000 ms  DeleteObjects: 0.021900 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.332400 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1899.
+Total: 1.216600 ms (FindLiveObjects: 0.041100 ms CreateObjectMapping: 0.009200 ms MarkObjects: 1.162800 ms  DeleteObjects: 0.003000 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 1899.
+Total: 1.261700 ms (FindLiveObjects: 0.057000 ms CreateObjectMapping: 0.009800 ms MarkObjects: 1.193200 ms  DeleteObjects: 0.001400 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 1899.
+Total: 1.195100 ms (FindLiveObjects: 0.055100 ms CreateObjectMapping: 0.010300 ms MarkObjects: 1.128000 ms  DeleteObjects: 0.001300 ms)
+
