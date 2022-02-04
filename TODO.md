@@ -3,9 +3,9 @@ https://docs.google.com/document/d/1wOtaH9X033DHvCPnox_Yj2MvNUXONKZ_SOst4k9FFpY/
 # TODO LIST
 
 ## Step Placement
-- [ ] extract_features 구조 파악
-- [ ] librosa 이해하기
-- [ ] generate level 부분 분석
+- [x] ddc 논문 이해하기
+- [x] peak 찍는 방법 이해하기
+- [x] generate level 부분 분석
 
 ## Step Placement(Time)
 - [ ] 원본 오디오 파일이 변환되는 과정 확인
