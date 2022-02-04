@@ -1,3 +1,5 @@
+https://docs.google.com/document/d/1wOtaH9X033DHvCPnox_Yj2MvNUXONKZ_SOst4k9FFpY/edit?usp=sharing
+
 # TODO LIST
 
 ## Step Placement
