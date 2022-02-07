@@ -41,7 +41,7 @@ class Beam():
     def done(self):
         return self._done
 
-    def advance(self, word_prob,sequence_length):
+    def advance(self, word_prob, sequence_length):
         "Update beam status and check if finished or not."
         num_words = word_prob.size(1) #vocab size. Dimension 0 is number of beams
 
@@ -60,7 +60,7 @@ class Beam():
         best_scores, best_scores_id = flat_beam_lk.topk(self.size, 0, True, True) # 1st sort
         best_scores, best_scores_id = flat_beam_lk.topk(self.size, 0, True, True) # 2nd sort
 
-        self.all_scores.append(self.scores)
+        self.all_scores.append(self.x)
         self.scores = best_scores
 
         # bestScoresId is flattened as a (beam x word) array,

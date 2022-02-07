@@ -24,14 +24,14 @@ from scipy import signal
 from scripts.generation.level_generation_utils import extract_features, make_level_from_notes, get_notes_from_stepmania_file
 
 parser = argparse.ArgumentParser(description='Generate Beat Saber level from song')
-parser.add_argument('--song_path', type=str)
-parser.add_argument('--json_file', type=str)
-parser.add_argument('--experiment_name', type=str)
-parser.add_argument('--checkpoint', type=str, default="latest")
+parser.add_argument('--song_path', type=str, default="../../songs/4.mp3")
+parser.add_argument('--json_file', type=str, default="generated/4_block_placement_ddc2_130000_0.33_1.0.dat")
+parser.add_argument('--experiment_name', type=str, default="block_selection_new2")
+parser.add_argument('--checkpoint', type=str, default="2150000") # "latest"
 parser.add_argument('--temperature', type=float, default=1.00)
-parser.add_argument('--bpm', type=float, default=None)
+parser.add_argument('--bpm', type=float, default=128) # None
 parser.add_argument('--generate_full_song', action="store_true")
-parser.add_argument('--use_beam_search', action="store_true")
+parser.add_argument('--use_beam_search', action="store_true", default=True)
 parser.add_argument('--open_in_browser', action="store_true")
 parser.add_argument('--cuda', action="store_true")
 

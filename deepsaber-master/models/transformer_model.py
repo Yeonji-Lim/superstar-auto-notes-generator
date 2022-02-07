@@ -177,25 +177,25 @@ class TransformerModel(BaseModel):
             truncated_sequence_length = min(len(states),opt.max_token_seq_len)
         else:
             truncated_sequence_length = len(states)
-        indices = torch.tensor(indices[:truncated_sequence_length]).to(torch.int64)
-        delta_forward = delta_forward[:,:truncated_sequence_length]
-        delta_backward = delta_backward[:,:truncated_sequence_length]
+        indices = torch.tensor(indices[:truncated_sequence_length]).to(torch.int64) #torch.Size([61])
+        delta_forward = delta_forward[:,:truncated_sequence_length] #(1, 61)
+        delta_backward = delta_backward[:,:truncated_sequence_length] #(1, 61)
 
-        input_forward_deltas = torch.tensor(delta_forward).unsqueeze(0).long()
-        input_backward_deltas = torch.tensor(delta_backward).unsqueeze(0).long()
+        input_forward_deltas = torch.tensor(delta_forward).unsqueeze(0).long() #torch.Size([1, 1, 61])
+        input_backward_deltas = torch.tensor(delta_backward).unsqueeze(0).long() #torch.Size([1, 1, 61])
         if opt.tgt_vector_input:
             input_block_sequence = torch.tensor(one_hot_states).unsqueeze(0).long()
             input_block_deltas = torch.cat([input_block_sequence,input_forward_deltas,input_backward_deltas],1)
 
-        y = y[:,indices]
-        input_windows = [y]
-        song_sequence = torch.tensor(input_windows)
+        y = y[:,indices] #(100, 61)
+        input_windows = [y] 
+        song_sequence = torch.tensor(input_windows) #torch.Size([1, 100, 61])
         song_sequence = (song_sequence - song_sequence.mean())/torch.abs(song_sequence).max().float()
         if not opt.tgt_vector_input:
-            song_sequence = torch.cat([song_sequence,input_forward_deltas.double(),input_backward_deltas.double()],1)
+            song_sequence = torch.cat([song_sequence,input_forward_deltas.double(),input_backward_deltas.double()],1) #torch.Size([1, 102, 61]) 두번째 차원으로 이어붙임
 
-        src_pos = torch.tensor(np.arange(len(indices))).unsqueeze(0)
-        src_mask = torch.tensor(constants.NUM_SPECIAL_STATES*np.ones(len(indices))).unsqueeze(0)
+        src_pos = torch.tensor(np.arange(len(indices))).unsqueeze(0) #torch.Size([1, 61])
+        src_mask = torch.tensor(constants.NUM_SPECIAL_STATES*np.ones(len(indices))).unsqueeze(0) #torch.Size([1, 61])
 
         ## actually generate level ##
         translator = Translator(opt,self)
@@ -207,10 +207,10 @@ class TransformerModel(BaseModel):
             if use_beam_search:
                 with torch.no_grad():
                     all_hyp, all_scores = translator.translate_batch(song_sequence.permute(0,2,1).float(), src_pos.long(), src_mask.long(),truncated_sequence_length)
-                    generated_sequence = all_hyp[0][0]
+                    generated_sequence = all_hyp[0][0] # 아마 제일 높은 점수 가진 거
             else:
                 with torch.no_grad():
-                    generated_sequence = translator.sample_translation(song_sequence.permute(0,2,1).float(), src_pos, src_mask,truncated_sequence_length, temperature)
+                    generated_sequence = translator.sample_translation(song_sequence.permute(0,2,1).float(), src_pos, src_mask, truncated_sequence_length, temperature)
         # return state_times, all_hyp[0] # we are for now only supporting single batch generation..
         return state_times, generated_sequence
 

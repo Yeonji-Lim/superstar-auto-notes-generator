@@ -89,7 +89,7 @@ class Encoder(nn.Module):
 
         # -- Forward
         #enc_output = self.src_word_emb(src_seq.permute(0,2,1)) + self.position_enc(src_pos)
-        enc_output = self.src_word_emb(src_seq) + self.position_enc(src_pos)
+        enc_output = self.src_word_emb(src_seq) + self.position_enc(src_pos) #torch.Size([1, 61, 512])
 
         for enc_layer in self.layer_stack:
             enc_output, enc_slf_attn = enc_layer(
