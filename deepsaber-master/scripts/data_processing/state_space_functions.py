@@ -93,7 +93,7 @@ def stage_two_states_to_json_notes(state_sequence, state_times, bpm, hop, sr, st
         # load script (i.e., feed ../stateSpace)
         state_rank = IOFunctions.loadFile("sorted_states.pkl", "stateSpace")   # Load the state representation
         # Add three all zero states for the sake of simplicity
-    state_rank[0:0] = [tuple(12 * [0])] * 3  # Eliminate the need for conditionals
+    state_rank[0:0] = [tuple(12 * [0])] * 3  # Eliminate the need for conditionals 처음에 0만 들어있는거 3개 넣음
     states_grid = [state_rank[state] for state in state_sequence]
     if len(state_times) > len(states_grid):
         time_new = state_times[0:len(states_grid)]
@@ -237,7 +237,7 @@ def get_block_sequence_with_deltas(json_file, song_length, bpm, step_size, top_k
     :param bpm: The input song's beats per minute, to convert state times (which are in beats) to real-time
     :param top_k: the top K states to keep (discard the rest)
     :param step_size: The duration you aim to use to discretize state appearance time
-    :param states: ???????
+    :param states: ??????? unique state
     :param one_hot: Returns states as one-hot (True) or numerical (False)
     :return_state_times: Returns the original beat occurrences of states, used for level variation within 2-stage model
     :return:
@@ -245,10 +245,10 @@ def get_block_sequence_with_deltas(json_file, song_length, bpm, step_size, top_k
     state_sequence = compute_state_sequence_representation_from_json(json_file=json_file, top_k=top_k, states=states)
     states_sequence_beat = [(time, state) for time, state in sorted(state_sequence.items(),key=lambda x:x[0]) if (time*60/bpm) <= song_length]
     states_sequence_real = [(time*60/bpm, state) for time, state in states_sequence_beat]
-    times_real_extended = np.array([0] + [time for time, state in states_sequence_real] + [song_length])
+    times_real_extended = np.array([0] + [time for time, state in states_sequence_real] + [song_length]) # 처음과 끝을 넣어줌, 시간만 저장
     times_beats = np.array([time for time, state in states_sequence_beat])
     max_index = int(song_length/step_size)-1  # Ascertain that rounding at the last step doesn't create a state after end of song
-    feature_indices = np.array([min(max_index,int((time/step_size)+0.5)) for time in times_real_extended])  # + 0.5 is for rounding
+    feature_indices = np.array([min(max_index,int((time/step_size)+0.5)) for time in times_real_extended])  # + 0.5 is for rounding # 대충 정수단위로 만들어서 저장 
     # States in a level file are not necessarily in time order, so sorting is done here, while also
     states = np.array([constants.START_STATE]+[state for time, state in states_sequence_beat]+[constants.END_STATE])
     if one_hot:
@@ -256,11 +256,11 @@ def get_block_sequence_with_deltas(json_file, song_length, bpm, step_size, top_k
         one_hot_states = np.zeros((top_k + NUM_SPECIAL_STATES, states.shape[0]))
         one_hot_states[states.astype(int), adv_indexing_col.astype(int)] = 1  # Advanced Indexing to fill one hot
     time_diffs = np.diff(times_real_extended)  # Compute differences between times
-    delta_backward = np.expand_dims(np.insert(time_diffs, 0, times_real_extended[0]), axis=0)
-    delta_forward = np.expand_dims(np.append(time_diffs, song_length - times_real_extended[-1]), axis=0)
+    delta_backward = np.expand_dims(np.insert(time_diffs, 0, times_real_extended[0]), axis=0) # 처음꺼 맨 앞에 붙임
+    delta_forward = np.expand_dims(np.append(time_diffs, song_length - times_real_extended[-1]), axis=0) # 마지막꺼 맨 뒤에 붙임
     if one_hot:
         if return_state_times: # Return state beat times if requested
-            return one_hot_states, states, times_beats, delta_forward, delta_backward, feature_indices
+            return one_hot_states, states, times_beats, delta_forward, delta_backward, feature_indices # one_hot_states, states, state_times, delta_forward, delta_backward, indices
         else:
             return one_hot_states, states, delta_forward, delta_backward, feature_indices
     else:
