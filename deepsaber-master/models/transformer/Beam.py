@@ -60,7 +60,7 @@ class Beam():
         best_scores, best_scores_id = flat_beam_lk.topk(self.size, 0, True, True) # 1st sort
         best_scores, best_scores_id = flat_beam_lk.topk(self.size, 0, True, True) # 2nd sort
 
-        self.all_scores.append(self.x)
+        self.all_scores.append(self.scores)
         self.scores = best_scores
 
         # bestScoresId is flattened as a (beam x word) array,
