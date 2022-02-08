@@ -1,3 +1,4 @@
+from email.policy import default
 import sys
 import os
 
@@ -24,13 +25,13 @@ from scipy import signal
 from scripts.generation.level_generation_utils import extract_features, make_level_from_notes, get_notes_from_stepmania_file
 
 parser = argparse.ArgumentParser(description='Generate Beat Saber level from song')
-parser.add_argument('--song_path', type=str)
-parser.add_argument('--experiment_name', type=str)
-parser.add_argument('--peak_threshold', type=float, default=0.0148)
-parser.add_argument('--checkpoint', type=str, default="latest")
+parser.add_argument('--song_path', type=str, default="D:\GitHub\superstar-auto-notes-generator\SuperStarResource\json&seq\Red_Velvet_Bad_Boy\Red_Velvet_Bad_Boy.ogg")
+parser.add_argument('--experiment_name', type=str, default="block_placement_ddc2")
+parser.add_argument('--peak_threshold', type=float, default=0.33)
+parser.add_argument('--checkpoint', type=str, default="130000")
 parser.add_argument('--temperature', type=float, default=1.00)
-parser.add_argument('--bpm', type=float, default=None)
-parser.add_argument('--cuda', action="store_true")
+parser.add_argument('--bpm', type=float, default=128)
+parser.add_argument('--cuda', default=True)
 
 args = parser.parse_args()
 
@@ -82,7 +83,7 @@ checkpoint = "iter_"+checkpoint
 model.load_networks(checkpoint)
 
 ''' GET SONG FEATURES '''
-#%%
+#%% 
 hop, features = extract_features(song_path, args, opt)
 
 ''' GENERATE LEVEL '''
