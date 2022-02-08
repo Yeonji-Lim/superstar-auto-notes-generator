@@ -186,8 +186,8 @@ def make_level_from_notes(notes, bpm, song_name, args, upload_to_dropbox=False, 
 
         bashCommand = "./dropbox_uploader.sh share /deepsaber_generated/"+song_name+"_"+signature_string+".zip"
         link = run_bash_command(bashCommand)
-        demo_link = "https://supermedium.com/beatsaver-viewer/?zip=https://cors-anywhere.herokuapp.com/"+link[15:-2].decode("utf-8") +'1'
-        print(demo_link)
+        #demo_link = "https://supermedium.com/beatsaver-viewer/?zip=https://cors-anywhere.herokuapp.com/"+link[15:-2].decode("utf-8") +'1'
+       # print(demo_link)
         # run_bash_command("google-chrome "+demo_link)
     if copy_to_root:
         bashCommand = "cp "+generated_folder+song_name+"_"+signature_string+".zip ../../../"
