@@ -43,6 +43,8 @@ song_path=args.song_path
 from pathlib import Path
 song_name = Path(song_path).stem
 
+print("STAGE ONE!")
+
 ''' LOAD MODEL, OPTS, AND WEIGHTS'''
 #%%
 

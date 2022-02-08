@@ -41,7 +41,7 @@ class Beam():
     def done(self):
         return self._done
 
-    def advance(self, word_prob,sequence_length):
+    def advance(self, word_prob, sequence_length):
         "Update beam status and check if finished or not."
         num_words = word_prob.size(1) #vocab size. Dimension 0 is number of beams
 
