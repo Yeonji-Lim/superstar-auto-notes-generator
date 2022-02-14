@@ -20,7 +20,7 @@ if not os.path.isdir(EXTRACT_DIR):
 
 difficulties = ['Easy', 'Normal', 'Hard', 'Expert', 'ExpertPlus']
 
-def saveFile(object, filename=None, save_dir=None, append=False):
+def saveFile(object, filename=None, save_dir=None, append=False): # pickle dump 이용해서 저장하는 함수
     if save_dir is None or save_dir is '':
         save_dir = os.path.join(os.getcwd(), 'Temp')
     if not os.path.isdir(save_dir):  # SUBJECT TO RACE CONDITION
