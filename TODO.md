@@ -18,8 +18,6 @@ https://docs.google.com/document/d/1wOtaH9X033DHvCPnox_Yj2MvNUXONKZ_SOst4k9FFpY/
 - [x] Transformer의 용도 : generate -> generated_sequence
 - [x] Step Placement의 결과물 사용처 : generated_sequence 생성
 - [x] 멀티 노트 시점 선정 기준 -> states_grid(==grid_state)의 원소(tuple)이 값을 두개 가지고 있는 경우
-- [ ] 긴 노트를 둘 시점 선정
-- [ ] 난이도에 따른 차이
 
 ## SuperStar Resource
 - [x] 노트 데이터 형식
@@ -35,7 +33,7 @@ https://docs.google.com/document/d/1wOtaH9X033DHvCPnox_Yj2MvNUXONKZ_SOst4k9FFpY/
 ## 생각해볼 것
 - [ ] 롱노트
 - [ ] 방향성 : 최종 결과물의 활용 방면
-- [ ] 새로운 unique state....??????? 
+- [ ] 새로운 unique state....???
 - [ ] SuperStar 가이드라인에 맞는 모델 변형
 - [ ] Editor exe 파일 뜯어보기
 
