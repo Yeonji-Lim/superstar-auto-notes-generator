@@ -184,6 +184,8 @@ class Translator(object):
 
         return batch_hyp, batch_scores
 
+#여기서부터 beam_search == false
+
     def sample_translation(self, src_seq, src_pos, src_mask, sequence_length, temperature):
         ''' Translation work in one batch '''
 
