@@ -12,7 +12,7 @@ Beam Width B(빔의 넓이) : 대안의 수
 
 입력문장이 주어지면 가장 높은 확률을 가진 상위 3개의 단어를 찾음.   
 모든 단어집에 softmax 적용 -> 여기서 가능성 가장 높은 3개의 단어 선택해서 메모리에 저장.   
-https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FR4w1u%2FbtqIxYmpD2A%2F7UmIpGNIHuYmKUw6HeRzs1%2Fimg.png 
+![image](https://user-images.githubusercontent.com/69388421/153822835-02ec946a-bd81-475b-b7c9-6256bc2fc953.png)
 
 ### step2
 
@@ -22,15 +22,18 @@ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog
 -> 총 30,000개의 조합 실행
 
 쌍이 만들어지지 않으면 단어를 drop
-https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FexISv5%2FbtqIAwXxWQw%2FuAI96GRzFn1SRg1C3RSngK%2Fimg.png
+![image](https://user-images.githubusercontent.com/69388421/153822863-79c0e43d-43d9-4755-94bc-e89077b46cda.png)
+
 
 ### step3
-https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQMmWY%2FbtqIKquKsC0%2FbKc3UzrZWh2Zkjvm7YmFg1%2Fimg.png
+![image](https://user-images.githubusercontent.com/69388421/153822889-1e996687-ee3e-42ab-902e-4a024384e671.png)
+
 같은 방식으로 세번째 단어를 찾는다. 이 절차를 계속 반복하면 결국 3개의 문장이 선택된다. 
 상위 3개의 문장은 다양한 길이일 수 있다.
 여기서 가장 높은 확률을 가진 문장을 디코더 출력으로 선택한다.
 
-https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcpnwb0%2FbtqIzYUhBvg%2Fj5TvQlNeqzEloC9BObnDpK%2Fimg.png 
+![image](https://user-images.githubusercontent.com/69388421/153822917-892dfc5d-aac3-4fbc-b6d6-5818c7446109.png)
+
 
 
 
