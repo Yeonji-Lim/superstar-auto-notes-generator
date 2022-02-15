@@ -25,10 +25,15 @@ https://docs.google.com/document/d/1wOtaH9X033DHvCPnox_Yj2MvNUXONKZ_SOst4k9FFpY/
 - [x] 노트를 찍는 기준, 스타일
 
 ## 20220204 이후 
-- [ ] Transformer 이해
-    - [ ] beam search 이해
+- [x] Transformer 이해
+    - [x] beam search 이해
 - [ ] json 형식 맞추기
 - [ ] 보컬, 멜로디 별 샘플 확인, 비교
+
+## 20220215 이후
+- [ ] hyp
+- [ ] tick
+- [ ] SEQEditor code, dotpeek, dll파일, 데스크톱 앱개발..?
 
 ## 생각해볼 것
 - [ ] 롱노트
