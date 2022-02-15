@@ -25,13 +25,13 @@ from scipy import signal
 from scripts.generation.level_generation_utils import extract_features, make_level_from_notes, get_notes_from_stepmania_file
 
 parser = argparse.ArgumentParser(description='Generate Beat Saber level from song')
-parser.add_argument('--song_path', type=str, default="D:\GitHub\superstar-auto-notes-generator\SuperStarResource\json&seq\Red_Velvet_Bad_Boy\Red_Velvet_Bad_Boy.ogg")
+parser.add_argument('--song_path', type=str, default="../../songs/4.mp3")
 parser.add_argument('--experiment_name', type=str, default="block_placement_ddc2")
 parser.add_argument('--peak_threshold', type=float, default=0.33)
 parser.add_argument('--checkpoint', type=str, default="130000")
 parser.add_argument('--temperature', type=float, default=1.00)
 parser.add_argument('--bpm', type=float, default=128)
-parser.add_argument('--cuda', default=True)
+parser.add_argument('--cuda', default=False)
 
 args = parser.parse_args()
 
