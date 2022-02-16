@@ -26,5 +26,5 @@ Beats Per Minute
 
 # json 분석
 
-1 measure = 4 beat = 1024 tick
+1 measure = 4 beat = 1024 tick != minute
 1 beat = 256 tick
