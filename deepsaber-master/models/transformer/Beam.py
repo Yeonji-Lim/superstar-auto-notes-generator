@@ -94,7 +94,7 @@ class Beam():
         if len(self.next_ys) == 1:
             dec_seq = self.next_ys[0].unsqueeze(1)
         else:
-            _, keys = self.sort_scores()
+            _, keys = self.sort_scores() # keys -> 0부터 19까지 차례로 저장
             # hyps = [[self.next_ys[0][k]] + self.get_hypothesis(k) for k in keys]
             hyps = [[constants.BOS] + self.get_hypothesis(k) for k in keys]
             # hyps = [[constants.BOS] + h for h in hyps]
