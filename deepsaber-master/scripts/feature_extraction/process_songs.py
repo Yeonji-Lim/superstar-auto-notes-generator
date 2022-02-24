@@ -21,8 +21,8 @@ from scripts.feature_extraction.feature_extraction import extract_features_hybri
 
 parser = argparse.ArgumentParser(description="Preprocess songs data")
 
-parser.add_argument("data_path", type=str, help="Directory contining Beat Saber level folders")
-parser.add_argument("difficulties", type=str, help="Comma-separated list of difficulties to process (e.g. \"Expert,Hard\"")
+parser.add_argument("--data_path", type=str, default="../../data/extracted_data", help="Directory contining Beat Saber level folders")
+parser.add_argument("--difficulties", type=str, default="Expert,ExpertPlus", help="Comma-separated list of difficulties to process (e.g. \"Expert,Hard\"")
 parser.add_argument("--feature_name", metavar='', type=str, default="mel", help="mel, chroma, multi_mel")
 parser.add_argument("--feature_size", metavar='', type=int, default=100)
 parser.add_argument("--sampling_rate", metavar='', type=float, default=44100.0)
