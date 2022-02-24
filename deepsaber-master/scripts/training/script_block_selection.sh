@@ -2,8 +2,8 @@
 
 # export PYTHONPATH="/home_directory/.local/lib/python3.5/site-packages/"
 
-#py=python3
-py=/usr/bin/python3
+py=python3
+#py=/usr/bin/python3
 dataset=stage_two
 model=transformer
 exp=block_selection_new
@@ -13,7 +13,6 @@ $py train.py --data_dir=../../data/extracted_data --dataset_name=$dataset --mode
     --val_epoch_freq=0 \
     --pad_batches \
     --feature_name=mel \
-    --feature_size=100 \
     --tgt_vocab_size=2003 \
     --label_smoothing \
     --max_token_seq_len=512 \

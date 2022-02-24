@@ -26,15 +26,19 @@ unique_states = pickle.load(open(os.path.join(DATA_DIR, 'statespace/sorted_state
 # feature_size = 24
 # number_reduced_states = 2000
 from .level_processing_functions import get_reduced_tensors_from_level, get_full_tensors_from_level
-import constants
+from . import constants
 from scripts.data_processing.state_space_functions import get_block_sequence_with_deltas
 
 class StageTwoDataset(BaseDataset):
 
-    def __init__(self, opt,receptive_field=None):
+    def __init__(self, opt, receptive_field=None):
         super().__init__()
         self.opt = opt
         self.receptive_field = receptive_field
+    
+        ############
+        opt.data_dir = '../../data/extracted_data'
+
         data_path = Path(opt.data_dir)
         if not data_path.is_dir():
             raise ValueError('Invalid directory:'+opt.data_dir)

@@ -24,8 +24,10 @@ def find_dataset_using_name(dataset_name, task_name):
     # will be imported.
 
     # try:
+
+
     task_module = importlib.import_module(task_name)
-    dataset_filename = task_name + ".data." + dataset_name + "_dataset"
+    dataset_filename = "data." + dataset_name + "_dataset"
     datasetlib = importlib.import_module(dataset_filename, package=task_module)
     # except (ModuleNotFoundError, ImportError):
     #     # if module not found, attempt to load from base
@@ -56,12 +58,12 @@ def find_dataset_using_name(dataset_name, task_name):
 
 
 def get_option_setter(dataset_name, task_name):
-    dataset_class = find_dataset_using_name(dataset_name, task_name)
+    dataset_class = find_dataset_using_name('stage_two', task_name)
     return dataset_class.modify_commandline_options
 
 
 def create_dataset(opt, validation_phase=False,*args,**kwargs):
-    dataset = find_dataset_using_name(opt.dataset_name, opt.task)
+    dataset = find_dataset_using_name('stage_two', opt.task) # opt.dataset_name 수정
     if validation_phase:
         opt.phase = "val"
     instance = dataset(opt,*args,**kwargs)
