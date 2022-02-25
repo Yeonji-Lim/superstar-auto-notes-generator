@@ -47,6 +47,7 @@ class StageTwoDataset(BaseDataset):
         self.info_jsons = []
         self.audio_files = []
         self.feature_files = {}
+        flag = True
 
         # cleaning up data, from songs which are too short
         for i, path in enumerate(candidate_audio_files):
@@ -63,34 +64,38 @@ class StageTwoDataset(BaseDataset):
             receptive_field = self.receptive_field
             output_length = self.opt.output_length
             input_length = receptive_field + output_length -1
-            try:
-                features = np.load(features_file)
-                if (features.shape[-1]-(input_length+self.opt.time_shifts-1)) < 1:
-                    print("Smol song; ignoring..")
-                    continue
-                self.feature_files[path.__str__()] = features_file
-            except FileNotFoundError:
-                raise Exception("An unprocessed song found; need to run preprocessing script process_songs.py before starting to train with them")
 
-            for diff in self.opt.level_diff.split(","):
+            if os.path.isfile(features_file):
+                flag = True
                 try:
-                    level = list(path.parent.glob('./'+diff+'.dat'))[0]
-                    if len(json.load(open(level.__str__(),"r"))["_notes"]) == 0:
-                        print("Ignoring level with no notes")
+                    features = np.load(features_file)
+                    if (features.shape[-1]-(input_length+self.opt.time_shifts-1)) < 1:
+                        print("Smol song; ignoring..")
                         continue
-                    info_file = list(path.parent.glob('./info.dat'))[0]
-                    self.level_jsons.append(level)
-                    self.info_jsons.append(info_file)
-                    self.audio_files.append(path)
-                except:
-                    continue
+                    self.feature_files[path.__str__()] = features_file
+                except FileNotFoundError:
+                    raise Exception("An unprocessed song found; need to run preprocessing script process_songs.py before starting to train with them")
 
+                for diff in self.opt.level_diff.split(","):
+                    try:
+                        level = list(path.parent.glob('./'+diff+'.dat'))[0]
+                        if len(json.load(open(level.__str__(),"r"))["_notes"]) == 0:
+                            print("Ignoring level with no notes")
+                            continue
+                        info_file = list(path.parent.glob('./info.dat'))[0]
+                        self.level_jsons.append(level)
+                        self.info_jsons.append(info_file)
+                        self.audio_files.append(path)
+                    except:
+                        continue
+            else: flag = False
 
-        assert self.audio_files, "List of audio files cannot be empty"
-        assert self.level_jsons, "List of level files cannot be empty"
-        assert self.info_jsons, "List of info files cannot be empty"
-        assert len(self.audio_files) == len(self.level_jsons)
-        assert len(self.audio_files) == len(self.info_jsons)
+        if flag:
+            assert self.audio_files, "List of audio files cannot be empty"
+            assert self.level_jsons, "List of level files cannot be empty"
+            assert self.info_jsons, "List of info files cannot be empty"
+            assert len(self.audio_files) == len(self.level_jsons)
+            assert len(self.audio_files) == len(self.info_jsons)
 
     @staticmethod
     def modify_commandline_options(parser, is_train):
