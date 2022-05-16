@@ -33,10 +33,15 @@ optimize_parameters()
     - forward
 
     - backward
+    
+        tensor의 backward 이용
 
 # base_model.py
 
-...
+set_requires_grad : 해당 신경망의 requires_grad 설정
+
+forward : pass
 
 # transformer/Models.py
 
+forward 
