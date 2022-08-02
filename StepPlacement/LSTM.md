@@ -86,3 +86,8 @@ state를 받은 tanh layer가 -1에서 1사이의 값을 받음
 sigmoid gate의 output과 곱함
 
 참고링크 : https://dgkim5360.tistory.com/entry/understanding-long-short-term-memory-lstm-kr
+
+RNN은 그 반복 모듈의 구조가 단순하다. tanh layer 한 층 만을 가지고 있다.
+
+LSTM은 다른 구조를 가지고 있다. 단순히 neural network layer 한층이 아니라 4개의 layer가 특별한 방식으로 서로 정보를 주고 받는다.
+
